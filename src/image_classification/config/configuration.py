@@ -18,13 +18,15 @@ class ConfigurationManager:
             prediction_data_path=config["prediction_data_path"],
         )
     
+        return data_ingestion_config
+    
     def get_data_validation_config(self) -> DataValidationConfig:
 
-       config = self.config["validation"]
+        config = self.config["validation"]
 
-       return DataValidationConfig(
-          train_data_path=config["train_data_path"],
-          test_data_path=config["test_data_path"],
-    )
+        data_validation_config = DataValidationConfig(
+            train_data_path=config["train_data_path"],
+            test_data_path=config["test_data_path"],
+        )
 
-        return data_ingestion_config ,  data_validation_config
+        return data_validation_config
