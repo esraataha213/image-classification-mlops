@@ -1,6 +1,6 @@
 from image_classification.utils.common import read_yaml
 from image_classification.entity.config_entity import DataIngestionConfig
-
+from image_classification.entity.config_entity import DataValidationConfig
 
 class ConfigurationManager:
 
@@ -17,5 +17,14 @@ class ConfigurationManager:
             test_data_path=config["test_data_path"],
             prediction_data_path=config["prediction_data_path"],
         )
+    
+    def get_data_validation_config(self) -> DataValidationConfig:
 
-        return data_ingestion_config
+       config = self.config["validation"]
+
+       return DataValidationConfig(
+          train_data_path=config["train_data_path"],
+          test_data_path=config["test_data_path"],
+    )
+
+        return data_ingestion_config ,  data_validation_config

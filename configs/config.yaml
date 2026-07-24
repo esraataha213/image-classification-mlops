@@ -8,3 +8,7 @@ model:
   image_size: 224
   batch_size: 32
   epochs: 10
+
+validation:
+  train_data_path: data/raw/seg_train/seg_train
+  test_data_path: data/raw/seg_test/seg_test
