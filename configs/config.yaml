@@ -1,0 +1,10 @@
+data:
+  raw_data_path: data/raw
+  train_data_path: data/raw/seg_train/seg_train
+  test_data_path: data/raw/seg_test/seg_test
+  prediction_data_path: data/raw/seg_pred/seg_pred
+
+model:
+  image_size: 224
+  batch_size: 32
+  epochs: 10
