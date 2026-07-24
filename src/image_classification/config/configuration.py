@@ -12,7 +12,8 @@ class ConfigurationManager:
     def __init__(self, config_filepath="configs/config.yaml"):
         self.config = read_yaml(config_filepath)
 
-    def get_data_ingestion_config(self):
+
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
 
         config = self.config["data"]
 
@@ -37,7 +38,8 @@ class ConfigurationManager:
         return data_validation_config
     
 
-    def get_data_validation_config(self):
+
+    def get_data_validation_config(self) -> DataValidationConfig:
 
         config = self.config["validation"]
 
@@ -46,7 +48,8 @@ class ConfigurationManager:
             test_data_path=config["test_data_path"],
         )
 
-    def get_data_transformation_config(self):
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
 
         data = self.config["data"]
         training = self.config["training"]
@@ -58,7 +61,8 @@ class ConfigurationManager:
             batch_size=training["batch_size"],
         )
 
-    def get_model_preparation_config(self):
+
+    def get_model_preparation_config(self) -> ModelPreparationConfig:
 
         training = self.config["training"]
 
@@ -68,4 +72,4 @@ class ConfigurationManager:
             learning_rate=training["learning_rate"],
             model_dir=training["model_dir"],
             model_name=training["model_name"],
-)
+        )
